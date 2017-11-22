@@ -1,0 +1,82 @@
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+
+RewriteEngine On
+
+#SET BERANDA
+RewriteRule ^beranda$ index.php
+RewriteRule ^beranda/$ index.php   
+RewriteRule ^controller$ include/func.view.saving.php
+RewriteRule ^controller/$ include/func.view.saving.php 
+RewriteRule ^controllerhome$ include/func.view.saving.mini.php
+RewriteRule ^controllerhome/$ include/func.view.saving.mini.php  
+RewriteRule ^login$ include/set.login.php 
+RewriteRule ^login/$ include/set.login.php 
+RewriteRule ^json$ include/set.json.php 
+RewriteRule ^json/$ include/set.json.php 
+RewriteRule ^pmb$ include/set.pmb.php 
+RewriteRule ^pmb/$ include/set.pmb.php 
+RewriteRule ^logout$ include/set.logout.php 
+RewriteRule ^logout/$ include/set.logout.php  
+RewriteRule ^nojs$ include/set.nojs.php
+RewriteRule ^nojs/$ include/set.nojs.php      
+RewriteRule ^export$ index.php
+RewriteRule ^export/$ index.php    
+RewriteRule ^export/([^/.]+)$ include/set.export.php?inis=$1 [L] 
+RewriteRule ^export/([^/.]+)/$ include/set.export.php?inis=$1 [L]  
+RewriteRule ^export/([^/.]+)/([^/.]+)$ include/set.export.php?inis=$1&opsional=$2 [L] 
+RewriteRule ^export/([^/.]+)/([^/.]+)/$ include/set.export.php?inis=$1&opsional=$2 [L] 
+RewriteRule ^print$ index.php
+RewriteRule ^print/$ index.php 
+RewriteRule ^print/([^/.]+)$ include/set.print.php?inis=$1 [L] 
+RewriteRule ^print/([^/.]+)/$ include/set.print.php?inis=$1 [L]  
+RewriteRule ^print/([^/.]+)/([^/.]+)$ include/set.print.php?inis=$1&opsional=$2 [L] 
+RewriteRule ^print/([^/.]+)/([^/.]+)/$ include/set.print.php?inis=$1&opsional=$2 [L] 
+RewriteRule ^pdf$ index.php
+RewriteRule ^pdf/$ index.php 
+RewriteRule ^pdf/([^/.]+)$ include/set.pdf.php?inis=$1 [L] 
+RewriteRule ^pdf/([^/.]+)/$ include/set.pdf.php?inis=$1 [L]  
+RewriteRule ^pdf/([^/.]+)/([^/.]+)$ include/set.pdf.php?inis=$1&opsional=$2 [L] 
+RewriteRule ^pdf/([^/.]+)/([^/.]+)/$ include/set.pdf.php?inis=$1&opsional=$2 [L]  
+
+#SET GENERAL
+RewriteRule ^([^/.]+)$ index.php?pages=$1
+RewriteRule ^([^/.]+)/$ index.php?pages=$1 
+RewriteRule ^([^/.]+)/([^/.]+)$ index.php?pages=$1&inis=$2 [L] 
+RewriteRule ^([^/.]+)/([^/.]+)/([^/.=&]+)$ index.php?pages=$1&inis=$2&field_id=$3 [L] 
+RewriteRule ^([^/.]+)/([^/.]+)/([^/.=&]+)/([^/.=&]+)$ index.php?pages=$1&inis=$2&field_id=$3&id_data=$4 [L]
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php7_module>
+   php_flag display_errors Off
+   php_value max_execution_time 30
+   php_value max_input_time 60
+   php_value max_input_vars 1000
+   php_value memory_limit 64M
+   php_value session.gc_maxlifetime 1440
+   php_value session.save_path "/var/cpanel/php/sessions/ea-php55"
+   php_value upload_max_filesize 2M
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php56” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddType application/x-httpd-ea-php56 .php .php5 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
